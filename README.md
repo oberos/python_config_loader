@@ -1,13 +1,13 @@
 # Python Config Loader
 
-This snippet allow to load JSON file directly to python dataclass.
+This snippet allow to load JSON file directly to pydantic model.
 
 ## Getting started
 
-Requires at least Python 3.7.  
-Put `config.py` and `config.json` files in your project.  
+Requires [Pydantic](https://pydantic-docs.helpmanual.io).  
+Put `config` folder in your project.  
 Fill `config.json` with your key: value pairs.  
-Modify `Config` dataclass in `config.py` file to represent json keys  
+Modify `Main` model in `config.py` file to represent json keys  
 
 # Usage
 
@@ -15,7 +15,21 @@ Modify `Config` dataclass in `config.py` file to represent json keys
 from config import load_config
 
 
-config2 = load_config("config.json")
-print(config2.some_key1)
-print(config2.some_key2)
+config = load_config()
+print(config)
+print(config.some_key1)
+print(config.some_key2)
+print(config.some_key3)
+print(config.some_key4)
+print(config.some_key4.sub_key1)
+```
+
+Outputs
+```
+some_key1='some_value1' some_key2='some_value2' some_key3=[1, 2, 3] some_key4=Sub(sub_key1='some_sub_value1', sub_key2='some_sub_value2')
+some_value1
+some_value2
+[1, 2, 3]
+sub_key1='some_sub_value1' sub_key2='some_sub_value2'
+some_sub_value1
 ```

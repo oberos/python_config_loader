@@ -6,10 +6,23 @@ This snippet allow to load JSON file directly to pydantic model.
 
 Requires [Pydantic](https://pydantic-docs.helpmanual.io).  
 Put `config` folder in your project.  
+Modify `Main` model in `config.py` according to your needs  
+Run `config.py` file to generate `config.json` template  
 Fill `config.json` with your key: value pairs.  
-Modify `Main` model in `config.py` file to represent json keys  
 
 # Usage
+```JSON
+{
+    "some_key1": "some_value1",
+    "some_key2": "some_value2",
+    "some_key3": [1, 2, 3],
+    "some_key4": {
+        "sub_key1": "some_sub_value1",
+        "sub_key2": "some_sub_value2"
+    },
+    "some_key5": ""
+}
+```
 
 ```python
 from config import load_config
